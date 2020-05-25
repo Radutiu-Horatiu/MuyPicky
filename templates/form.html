@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+	{% block head_title %}{{ title }} | {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+
+	<h1>{{ title }}:
+
+		{% if form.instance %}
+
+			{{ form.instance.name }}
+
+		{% endif %}
+
+	</h1>
+
+	{% include 'snippets/form_snippet.html' %}
+	
+
+{% endblock content %}
+
+<!-- 
+		{% if form.errors %}
+
+		{{ errors }}
+
+		{% endif %}
+		<input type="text" name="name" placeholder="Your Title"><br>
+		<input type="text" name="location" placeholder="your Location" required=required><br>
+		<input type="text" name="category" placeholder="Your Category"><br> -->

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+	{% block head_title %}{{ user.username }} | {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+
+	<h1>{{ user.username }}</h1>
+
+	<p>{% include 'profiles/snippets/follow_form.html' with username=user.username is_following=is_following%}</p>
+
+	<form class='form' method="GET" action=".">
+
+		<input type="text" name="q" placeholder="Search.." value='{{ request.GET.q }}'>
+
+		<button class='btn btn-primary' type="submit">Search</button>
+
+	</form>
+
+	<hr>
+
+	{% if locations %}
+	<p class='lead display-6'>Restaurants</p>
+	{% for rest in locations %}
+
+		<div class='col-sm-12' id="profile-element"><h5>{{ rest.title }}</h5> 
+
+			<a href='{{ request.path }}?q={{ rest.location }}'><span id="locations">{{ rest.location }}</span></a>|   
+			<a href='{{ request.path }}?q={{ rest.category }}'><span id="locations">{{ rest.category }}</span></a>
+
+			<ul>
+				
+				{% for item in rest.item_set.all %}
+
+					<li><h6>{{ item.name }}<h6>
+
+						{% for ing in item.get_contents %}
+
+							<a href='{{ request.path }}?q={{ ing }}'><span id="ingredients">{{ ing }}</span></a>
+
+						{% endfor %}
+
+					</li>
+
+				{% endfor %}
+
+			</ul>
+
+		</div>
+
+	{% endfor %}
+
+	{% else %}
+
+	<p class="lead">No items found</p>
+
+	{% endif %}
+
+{% endblock content %}
