@@ -20,13 +20,13 @@ from django.conf.urls import url
 from django.views.generic import TemplateView
 from menus.views import HomeView
 import restaurant.views
-from profiles.views import ProfileFollowToggle, RegisterView, activate_user_view
+from profiles.views import ProfileFollowToggle, RegisterView#, activate_user_view
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     
     url(r'^register/$', RegisterView.as_view(), name='register'),
-    url(r'^activate/(?P<code>[a-z0-9].*)/$', activate_user_view, name='activate'),
+    #url(r'^activate/(?P<code>[a-z0-9].*)/$', activate_user_view, name='activate'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^login/$', LoginView.as_view(template_name='login.html'), name='login'),
     url(r'^about/$', TemplateView.as_view(template_name='about.html'), name='about'),
