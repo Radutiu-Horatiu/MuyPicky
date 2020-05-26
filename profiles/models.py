@@ -57,7 +57,7 @@ class Profile(models.Model):
 			# 	fail_silently=False, 
 			# 	html_message=html_message
 			# )
-			sent_mail = False
+			sent_mail = True
 			return sent_mail
 
 def post_save_user_receiver(sender, instance, created, *args, **kwargs):
