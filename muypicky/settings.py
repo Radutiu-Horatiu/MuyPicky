@@ -34,7 +34,7 @@ SECRET_KEY = 'xa411rnoh)be@z4f9iwf@ry0loddewg3i^-m+1m0f1!30h0)@3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hradutiu.pythonanywhere.com']
 
 EMAIL_HOST = 'smtp.email-host-provider-domain.com'
 EMAIL_HOST_USER = 'yourusername@youremail.com'
@@ -141,6 +141,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/hradutiu/MuyPicky/static'
 
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
